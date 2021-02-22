@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun initRecyclerView(){
-        adapter = CharactersAdapter(listOf())
+        adapter = CharactersAdapter(context = this, dataSet = listOf())
         binding.charactersRecyclerview.adapter = adapter
         binding.charactersRecyclerview.layoutManager = LinearLayoutManager(this)
     }
