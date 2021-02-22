@@ -7,4 +7,12 @@
     <string name="profile_lastname">Lastname : %s</string>
     <string name="profile_age">Age : %d years old</string>
     <string name="profile_job">Job : %s</string>
+
+    <string name="title_texview">Add Character</string>
+    <string name="lastname_edittext">Lastname</string>
+    <string name="firstname_edittext">Firstname</string>
+    <string name="age_edittext">Age</string>
+    <string name="job_edittext">Job</string>
+    <string name="validate_button">Validate</string>
+    <string name="error_missing_data">Missing data</string>
 </resources>

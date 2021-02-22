@@ -8,6 +8,7 @@ import com.tguillaume.samplecharacter.R
 import com.tguillaume.samplecharacter.data.Character
 import com.tguillaume.samplecharacter.data.MyDatabase
 import com.tguillaume.samplecharacter.databinding.ActivityMainBinding
+import com.tguillaume.samplecharacter.ui.add_character.AddCharacterActivity
 import com.tguillaume.samplecharacter.ui.common.BundleKeys
 import com.tguillaume.samplecharacter.ui.list_characters.adapters.CharactersAdapter
 import com.tguillaume.samplecharacter.ui.profil.ProfileActivity
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         setContentView(binding.root)
 
         initRecyclerView()
+        initOnClick()
     }
 
     override fun onResume() {
@@ -57,6 +59,15 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         binding.charactersRecyclerview.adapter = adapter
         binding.charactersRecyclerview.layoutManager = LinearLayoutManager(this)
+    }
+
+    private fun initOnClick(){
+        binding.addCharacterFloatingButton.setOnClickListener { onClickAddCharacter() }
+    }
+
+    private fun onClickAddCharacter(){
+        val intentAdd = Intent(this, AddCharacterActivity::class.java)
+        startActivity(intentAdd)
     }
 
     private fun loadData() {

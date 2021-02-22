@@ -6,4 +6,12 @@
     <string name="profile_age">Age : %d ans</string>
     <string name="profile_job">Métier : %s</string>
 
+    <string name="title_texview">Ajouter un personnage</string>
+    <string name="lastname_edittext">Prénom</string>
+    <string name="firstname_edittext">Nom</string>
+    <string name="age_edittext">Age</string>
+    <string name="job_edittext">Métier</string>
+    <string name="validate_button">Valider</string>
+    <string name="error_missing_data">Donnée(s) manquante(s)</string>
+
 </resources>

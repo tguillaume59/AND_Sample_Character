@@ -7,4 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="iconColorWhite">@color/white</color>
+    <color name="floating_action_button_bg_color">#1E90FF</color>
 </resources>

@@ -23,6 +23,11 @@
         <activity
             android:name=".ui.profil.ProfileActivity"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.add_character.AddCharacterActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
