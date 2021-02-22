@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Sample Character</string>
+
+    <string name="no_data" translatable="false">N/A</string>
+
+    <string name="profile_firstname">Firstname : %s</string>
+    <string name="profile_lastname">Lastname : %s</string>
+    <string name="profile_age">Age : %d years old</string>
+    <string name="profile_job">Job : %s</string>
 </resources>

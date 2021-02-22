@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Sample Character</string>
+
+    <string name="profile_firstname">Prénom : %s</string>
+    <string name="profile_lastname">Nom : %s</string>
+    <string name="profile_age">Age : %d ans</string>
+    <string name="profile_job">Métier : %s</string>
+
+</resources>

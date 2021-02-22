@@ -1,14 +1,12 @@
 package com.tguillaume.samplecharacter.ui.list_characters.adapters
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.tguillaume.samplecharacter.R
 import com.tguillaume.samplecharacter.data.Character
-import com.tguillaume.samplecharacter.data.SexEnum
+import com.tguillaume.samplecharacter.ui.common.ProfilePictureManager
 import com.tguillaume.samplecharacter.ui.list_characters.viewholders.CharacterViewHolder
 
 /**
@@ -21,7 +19,8 @@ import com.tguillaume.samplecharacter.ui.list_characters.viewholders.CharacterVi
  */
 class CharactersAdapter(
     val context: Context,
-    var dataSet: List<Character>
+    var dataSet: List<Character>,
+    val onCharacterItemClick: ((idCharacter: Int) -> Unit)
 ) : RecyclerView.Adapter<CharacterViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): CharacterViewHolder {
@@ -37,23 +36,16 @@ class CharactersAdapter(
         holder.firstNameTextview.text = character.firstName
         holder.lastNameTextView.text = character.lastName
 
-        val drawable = getDrawableBySex(sex = character.sex)
+        val drawable =
+            ProfilePictureManager.getDrawableBySex(context = context, sex = character.sex)
         holder.pictureImageView.setImageDrawable(drawable)
+
+        holder.itemView.setOnClickListener {
+            onCharacterItemClick(character.id)
+        }
     }
 
     override fun getItemCount(): Int {
         return dataSet.size
     }
-
-    private fun getDrawableBySex(sex: SexEnum): Drawable? {
-        val idDrawable = when (sex) {
-            SexEnum.BOY -> R.drawable.ic_boy
-            SexEnum.GIRL -> R.drawable.ic_girl
-            SexEnum.EXTRATERRESTRIAL,
-            SexEnum.OTHER -> R.drawable.ic_launcher_foreground
-        }
-
-        return ContextCompat.getDrawable(context, idDrawable)
-    }
-
 }

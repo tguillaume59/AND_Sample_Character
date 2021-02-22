@@ -1,13 +1,16 @@
 package com.tguillaume.samplecharacter.ui.list_characters
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tguillaume.samplecharacter.R
 import com.tguillaume.samplecharacter.data.Character
 import com.tguillaume.samplecharacter.data.MyDatabase
 import com.tguillaume.samplecharacter.databinding.ActivityMainBinding
+import com.tguillaume.samplecharacter.ui.common.BundleKeys
 import com.tguillaume.samplecharacter.ui.list_characters.adapters.CharactersAdapter
+import com.tguillaume.samplecharacter.ui.profil.ProfileActivity
 
 /**
  * @Project : Sample Character
@@ -44,15 +47,27 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         _binding = null
     }
 
-    private fun initRecyclerView(){
-        adapter = CharactersAdapter(context = this, dataSet = listOf())
+    private fun initRecyclerView() {
+        adapter = CharactersAdapter(
+            context = this,
+            dataSet = listOf(),
+            onCharacterItemClick = { idCharacter: Int ->
+                onItemSelected(idCharacter)
+            })
+
         binding.charactersRecyclerview.adapter = adapter
         binding.charactersRecyclerview.layoutManager = LinearLayoutManager(this)
     }
 
-    private fun loadData(){
+    private fun loadData() {
         val listCharaters: List<Character> = database.getAllCharacters()
         adapter?.dataSet = listCharaters
         adapter?.notifyDataSetChanged()
+    }
+
+    private fun onItemSelected(idCharacter: Int) {
+        val profileIntent = Intent(this, ProfileActivity::class.java)
+        profileIntent.putExtra(BundleKeys.CHARACTER_ID, idCharacter)
+        startActivity(profileIntent)
     }
 }

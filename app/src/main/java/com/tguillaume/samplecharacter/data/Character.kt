@@ -14,4 +14,7 @@ data class Character(
     var age: Int,
     val sex: SexEnum,
     var job: String = ""
-)
+){
+
+    var id: Int = -1
+}
